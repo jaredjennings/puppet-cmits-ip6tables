@@ -36,7 +36,7 @@ define ip6tables::use($subnet, $site) {
     include ip6tables
     $ipt_text = template("ip6tables/${name}")
     file { "/etc/sysconfig/ip6tables":
-        owner => root, group => 0, mode => 0600,
+        owner => root, group => 0, mode => '0600',
         content => $ipt_text,
         notify => Service["ip6tables"],
     }
